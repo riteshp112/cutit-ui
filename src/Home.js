@@ -11,11 +11,12 @@ export const Home = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          alert(response.statusText);
+          throw new Error(response.statusText);
         }
         return response.json();
       })
-      .then((data) => setResult(data.short_url));
+      .then((data) => setResult(data.short_url))
+      .catch((error) => alert(error));
   };
   return (
     <View style={{ flexDirection: "column", gap: 4 }}>
