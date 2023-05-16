@@ -33,7 +33,7 @@ export const Home = () => {
         <Button title="Cut" onPress={getShortenedLink} />
       </View>
       {result !== "" && (
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "column" }}>
           <Text>{`The shortened link is: `}</Text>
           <Text
             style={{ color: "blue" }}
