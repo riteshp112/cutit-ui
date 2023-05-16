@@ -34,7 +34,7 @@ export const Home = () => {
       </View>
       {result !== "" && (
         <View style={{ flexDirection: "column" }}>
-          <Text>{`The shortened link is: `}</Text>
+          <Text>{`The shortened link is `}</Text>
           <Text
             style={{ color: "blue" }}
             onPress={() => Linking.openURL(result)}
