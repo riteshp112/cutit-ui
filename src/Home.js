@@ -5,7 +5,7 @@ export const Home = () => {
   const [link, setLink] = useState("");
   const [result, setResult] = useState("");
   const getShortenedLink = () => {
-    fetch("http://localhost:5000/", {
+    fetch("https://cutit-server.onrender.com/", {
       method: "post",
       body: JSON.stringify({ url: link }),
     })
