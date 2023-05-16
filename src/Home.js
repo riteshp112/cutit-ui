@@ -11,7 +11,7 @@ export const Home = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(response.statusText);
+          alert(response.statusText);
         }
         return response.json();
       })
