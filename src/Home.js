@@ -1,6 +1,16 @@
+// @ts-nocheck
 import React, { useState } from "react";
-import { View, TextInput, Button, Text, Linking } from "react-native";
-
+import {
+  View,
+  TextInput,
+  Button,
+  Text,
+  Linking,
+  TouchableOpacity,
+  Image,
+} from "react-native";
+import * as ExpoClipboard from "expo-clipboard";
+const copyIcon = require("./copy-icon.png");
 export const Home = () => {
   const [link, setLink] = useState("");
   const [result, setResult] = useState("");
@@ -35,12 +45,22 @@ export const Home = () => {
       {result !== "" && (
         <View style={{ flexDirection: "column" }}>
           <Text>{`The shortened link is `}</Text>
-          <Text
-            style={{ color: "blue" }}
-            onPress={() => Linking.openURL(result)}
-          >
-            {result}
-          </Text>
+          <View style={{ flexDirection: "row", gap: 4 }}>
+            <Text
+              style={{ color: "blue" }}
+              selectable={true}
+              onPress={() => Linking.openURL(result)}
+            >
+              {result}
+            </Text>
+            <TouchableOpacity
+              onPress={async () => {
+                await ExpoClipboard.setStringAsync(result);
+              }}
+            >
+              <Image source={copyIcon} style={{ height: 14, width: 14 }} />
+            </TouchableOpacity>
+          </View>
         </View>
       )}
     </View>
